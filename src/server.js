@@ -1,7 +1,7 @@
 import express from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import Database from "./config/db.js";
 
 const app = express();
 
@@ -11,7 +11,9 @@ const port = 5000;
 // middlewares
 app.use(cors());
 app.use(express.json());
-
+// db connection
+const db = new Database(process.env.DB_URI);
+db.connect();
 app.get("/", (req, res) => res.send("Course Management Server is running"));
 
 app.listen(port, () => {
