@@ -21,15 +21,7 @@ app.get("/", (req, res) => res.send("Course Management Server is running"));
 // all routes
 app.use("/", userRouter);
 
-app.post("/users/post", async (req, res) => {
-  const user = await User(req.body);
-  await user.save();
 
-  res.status(201).json({
-    message: "user created",
-    data: user,
-  });
-});
 
 app.listen(port, () => {
   console.log(`Server is running on ${port} `);
