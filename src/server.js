@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import Database from "./config/db.js";
+import { User } from "./model/userModel.js";
+import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 
@@ -15,6 +17,19 @@ app.use(express.json());
 const db = new Database(process.env.DB_URI);
 db.connect();
 app.get("/", (req, res) => res.send("Course Management Server is running"));
+
+// all routes
+app.use("/", userRouter);
+
+app.post("/users/post", async (req, res) => {
+  const user = await User(req.body);
+  await user.save();
+
+  res.status(201).json({
+    message: "user created",
+    data: user,
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on ${port} `);
