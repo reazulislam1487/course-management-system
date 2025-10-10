@@ -3,11 +3,22 @@ import jwt from "jsonwebtoken";
 
 import { User } from "../model/userModel.js";
 
-export const getUsers = async (req, res) => {
-  res.json({
-    message: "Successfully get users",
-    data: [],
-  });
+export const getAllUsers = async (req, res) => {
+  const { name, email } = req.user;
+  console.log(name);
+  try {
+    const users = await User.find();
+    res.json({
+      message: "Successfully get users",
+      data: users,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+      success: false,
+    });
+  }
 };
 
 export const createUser = async (req, res) => {
@@ -61,7 +72,7 @@ export const login = async (req, res) => {
     const result = await bycrpt.compare(password, user?.password);
     if (result) {
       const token = jwt.sign(
-        { name: user?.name, userId: user?._id },
+        { name: user?.name, email: user?.email, userId: user?._id },
         process.env.JWT_SECRET,
         {
           expiresIn: "1h",
