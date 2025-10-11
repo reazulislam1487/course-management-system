@@ -1,7 +1,7 @@
 import { Lesson } from "../model/lessonModel.js";
 import { Topic } from "../model/topicModel.js";
 
-// ➤ Create Topic
+// Create Topic
 export const createTopic = async (req, res, next) => {
   try {
     const { title, content, quiz, lesson } = req.body;
@@ -28,7 +28,7 @@ export const createTopic = async (req, res, next) => {
   }
 };
 
-// ➤ Get All Topics
+//  Get All Topics
 export const getTopics = async (req, res, next) => {
   try {
     const topics = await Topic.find().populate("lesson", "title");
@@ -42,7 +42,7 @@ export const getTopics = async (req, res, next) => {
   }
 };
 
-// ➤ Get Topic by ID
+//  Get Topic by ID
 export const getTopicById = async (req, res, next) => {
   try {
     const topic = await Topic.findById(req.params.id).populate(
@@ -64,7 +64,7 @@ export const getTopicById = async (req, res, next) => {
   }
 };
 
-// ➤ Update Topic
+//  Update Topic
 export const updateTopic = async (req, res, next) => {
   try {
     const topic = await Topic.findByIdAndUpdate(req.params.id, req.body, {
@@ -85,7 +85,7 @@ export const updateTopic = async (req, res, next) => {
   }
 };
 
-// ➤ Delete Topic
+//  Delete Topic
 export const deleteTopic = async (req, res, next) => {
   try {
     const topic = await Topic.findByIdAndDelete(req.params.id);

@@ -1,7 +1,7 @@
 import { Course } from "../model/courseModel.js";
 import { Lesson } from "../model/lessonModel.js";
 
-// ➤ Create Lesson
+//  Create Lesson
 export const createLesson = async (req, res, next) => {
   try {
     const { title, course } = req.body;
@@ -25,7 +25,7 @@ export const createLesson = async (req, res, next) => {
   }
 };
 
-// ➤ Get All Lessons
+//  Get All Lessons
 export const getLessons = async (req, res, next) => {
   try {
     const lessons = await Lesson.find().populate("course", "title description");
@@ -39,7 +39,7 @@ export const getLessons = async (req, res, next) => {
   }
 };
 
-// ➤ Get Lesson by ID
+// Get Lesson by ID
 export const getLessonById = async (req, res, next) => {
   try {
     const lesson = await Lesson.findById(req.params.id).populate("course");
@@ -58,7 +58,7 @@ export const getLessonById = async (req, res, next) => {
   }
 };
 
-// ➤ Update Lesson
+//  Update Lesson
 export const updateLesson = async (req, res, next) => {
   try {
     const lesson = await Lesson.findByIdAndUpdate(req.params.id, req.body, {
@@ -79,7 +79,7 @@ export const updateLesson = async (req, res, next) => {
   }
 };
 
-// ➤ Delete Lesson
+//  Delete Lesson
 export const deleteLesson = async (req, res, next) => {
   try {
     const lesson = await Lesson.findByIdAndDelete(req.params.id);

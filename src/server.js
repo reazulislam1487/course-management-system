@@ -25,7 +25,7 @@ app.get("/", (req, res) => res.send("Course Management Server is running"));
 app.use("/user", userRouters);
 app.use("/course", courseRouters);
 app.use("/lesson", lessonRoutes);
-app.use("/lesson", topicRoutes);
+app.use("/topic", topicRoutes);
 
 // Global error handler
 app.use(globalErrorHandler);

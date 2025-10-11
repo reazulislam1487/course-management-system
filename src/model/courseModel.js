@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-//? Relationship Flow 
+//? Relationship Flow
 //! Teacher → Course → Lesson → Topic → Quiz
 
 const courseSchema = new mongoose.Schema(
