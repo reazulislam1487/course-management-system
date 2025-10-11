@@ -22,7 +22,7 @@ export const getAllUsers = async (req, res) => {
 };
 
 export const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   try {
     const existUser = await User.findOne({ email });
@@ -37,7 +37,7 @@ export const createUser = async (req, res) => {
     }
     const hashedPassword = await bycrpt.hash(password, 10);
 
-    const user = await User({ name, email, password: hashedPassword });
+    const user = await User({ name, email, password: hashedPassword, role });
 
     await user.save();
 
