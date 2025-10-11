@@ -2,8 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import Database from "./config/db.js";
-import userRouter from "./routes/userRoutes.js";
-import courseRouter from "./routes/coursesRoutes.js";
+import userRouters from "./routes/userRoutes.js";
+import courseRouters from "./routes/coursesRoutes.js";
+import lessonRoutes from "./routes/lessonRoutes.js";
+import topicRoutes from "./routes/topicRoutes.js";
 import globalErrorHandler from "./middlewares/errorHandler.js";
 
 const app = express();
@@ -20,8 +22,10 @@ db.connect();
 app.get("/", (req, res) => res.send("Course Management Server is running"));
 
 // all routes
-app.use("/user", userRouter);
-app.use("/course", courseRouter);
+app.use("/user", userRouters);
+app.use("/course", courseRouters);
+app.use("/lesson", lessonRoutes);
+app.use("/lesson", topicRoutes);
 
 // Global error handler
 app.use(globalErrorHandler);
