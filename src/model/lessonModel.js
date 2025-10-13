@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Lesson Model
 const lessonSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },

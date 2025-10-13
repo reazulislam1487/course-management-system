@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Topic Model
 const topicSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },

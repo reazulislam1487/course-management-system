@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 //? Relationship Flow
 //! Teacher → Course → Lesson → Topic → Quiz
 
+// Course Model
 const courseSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
