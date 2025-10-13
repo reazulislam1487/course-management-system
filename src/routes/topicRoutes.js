@@ -9,8 +9,8 @@ import {
 
 const router = express.Router();
 
-router.post("/", verifyToken, createTopic);
-router.get("/", verifyToken, getTopics);
+router.post("/create", verifyToken, createTopic);
+router.get("/all", verifyToken, getTopics);
 router.get("/:id", verifyToken, getTopicById);
 router.put("/:id", verifyToken, updateTopic);
 router.delete("/:id", verifyToken, deleteTopic);

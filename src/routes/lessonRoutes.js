@@ -9,8 +9,8 @@ import {
 
 const router = express.Router();
 
-router.post("/", verifyToken, createLesson);
-router.get("/", verifyToken, getLessons);
+router.post("/create", verifyToken, createLesson);
+router.get("/all", verifyToken, getLessons);
 router.get("/:id", verifyToken, getLessonById);
 router.put("/:id", verifyToken, updateLesson);
 router.delete("/:id", verifyToken, deleteLesson);
