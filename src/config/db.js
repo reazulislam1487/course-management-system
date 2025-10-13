@@ -19,15 +19,15 @@ class Database {
     return this.connection;
   }
 
-  async disconnect() {
-    try {
-      await mongoose.disconnect();
-      this.connection = null;
-      console.log(" MongoDB Disconnected");
-    } catch (error) {
-      console.error(" Error Disconnecting MongoDB:", error.message);
-    }
-  }
+  // async disconnect() {
+  //   try {
+  //     await mongoose.disconnect();
+  //     this.connection = null;
+  //     console.log(" MongoDB Disconnected");
+  //   } catch (error) {
+  //     console.error(" Error Disconnecting MongoDB:", error.message);
+  //   }
+  // }
 }
 
 export default Database;
