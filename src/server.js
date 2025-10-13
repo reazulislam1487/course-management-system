@@ -29,6 +29,7 @@ app.use("/topic", topicRoutes);
 
 // Global error handler
 app.use(globalErrorHandler);
+// app listener
 app.listen(port, () => {
   console.log(`Server is running on ${port} `);
 });
