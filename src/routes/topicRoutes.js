@@ -9,10 +9,10 @@ import {
 
 const router = express.Router();
 
-router.post("/", createTopic);
-router.get("/", getTopics);
-router.get("/:id", getTopicById);
-router.put("/:id", updateTopic);
-router.delete("/:id", deleteTopic);
+router.post("/", verifyToken, createTopic);
+router.get("/", verifyToken, getTopics);
+router.get("/:id", verifyToken, getTopicById);
+router.put("/:id", verifyToken, updateTopic);
+router.delete("/:id", verifyToken, deleteTopic);
 
 export default router;

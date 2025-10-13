@@ -6,7 +6,7 @@ import {
 } from "../controllers/courseControllers.js";
 const router = express.Router();
 
-router.post("/create", createCourse);
-router.get("/all", getCourses);
-router.delete("/:id", courseDeleteById);
+router.post("/create", verifyToken, createCourse);
+router.get("/all", verifyToken, getCourses);
+router.delete("/:id", verifyToken, courseDeleteById);
 export default router;
