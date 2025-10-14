@@ -12,8 +12,10 @@ export const createCourse = async (req, res, next) => {
     next(error);
   }
 };
+
+// teacher can update only title and description
 export const updateCourse = async (req, res, next) => {
-  const { id, title, description, teacher } = req.body;
+  const { id, title, description } = req.body;
   try {
     const updatedData = await Course.findByIdAndUpdate(
       id,
@@ -21,7 +23,6 @@ export const updateCourse = async (req, res, next) => {
         $set: {
           title,
           description,
-          teacher,
         },
       },
       { new: true }
