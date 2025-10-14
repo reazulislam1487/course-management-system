@@ -6,6 +6,7 @@ import {
   updateLesson,
   deleteLesson,
 } from "../controllers/lessonController.js";
+import verifyToken from "../middlewares/authMiddlewares.js";
 
 const router = express.Router();
 

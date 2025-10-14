@@ -12,7 +12,27 @@ export const createCourse = async (req, res, next) => {
     next(error);
   }
 };
-
+export const updateCourse = async (req, res, next) => {
+  const { id, title, description, teacher } = req.body;
+  try {
+    const updatedData = await Course.findByIdAndUpdate(
+      id,
+      {
+        $set: {
+          title,
+          description,
+          teacher,
+        },
+      },
+      { new: true }
+    );
+    console.log("from find by id", course);
+    console.log("from updated data", updatedData);
+    res.status(200).json({ data: updatedData });
+  } catch (error) {
+    next(error);
+  }
+};
 export const getCourses = async (req, res, next) => {
   try {
     const { page = 1, limit = 10, searchTerm = "" } = req.query;

@@ -6,6 +6,7 @@ import {
   updateTopic,
   deleteTopic,
 } from "../controllers/topicController.js";
+import verifyToken from "../middlewares/authMiddlewares.js";
 
 const router = express.Router();
 
