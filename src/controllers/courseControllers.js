@@ -27,8 +27,7 @@ export const updateCourse = async (req, res, next) => {
       },
       { new: true }
     );
-    console.log("from find by id", course);
-    console.log("from updated data", updatedData);
+   
     res.status(200).json({ data: updatedData });
   } catch (error) {
     next(error);
