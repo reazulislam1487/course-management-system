@@ -1,5 +1,6 @@
 import { Course } from "../model/courseModel.js";
 
+// create Course by Admin
 export const createCourse = async (req, res, next) => {
   try {
     const course = await Course.create(req.body);
@@ -37,6 +38,7 @@ export const updateCourse = async (req, res, next) => {
     next(error);
   }
 };
+// get all courses
 export const getCourses = async (req, res, next) => {
   try {
     const { page = 1, limit = 10, searchTerm = "" } = req.query;
