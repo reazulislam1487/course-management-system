@@ -63,6 +63,7 @@ export const getCourses = async (req, res, next) => {
     next(error);
   }
 };
+// Delete Course by Id
 export const courseDeleteById = async (req, res) => {
   const { id } = req.params;
   try {
