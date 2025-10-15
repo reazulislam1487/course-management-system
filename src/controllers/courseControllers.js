@@ -27,8 +27,12 @@ export const updateCourse = async (req, res, next) => {
       },
       { new: true }
     );
-   
-    res.status(200).json({ data: updatedData });
+
+    res.status(200).json({
+      success: true,
+      message: "Course Update Successfully",
+      data: updatedData,
+    });
   } catch (error) {
     next(error);
   }
