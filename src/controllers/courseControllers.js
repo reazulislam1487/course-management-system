@@ -63,32 +63,6 @@ export const getCourses = async (req, res, next) => {
     next(error);
   }
 };
-
-// get all courses
-export const getCourses = async (req, res, next) => {
-  try {
-    const { page = 1, limit = 10, searchTerm = "" } = req.query;
-
-    const query = {
-      $or: [
-        { title: { $regex: searchTerm, $options: "i" } },
-        { description: { $regex: searchTerm, $options: "i" } },
-      ],
-    };
-
-    const courses = await Course.find(query)
-      .skip((page - 1) * limit)
-      .limit(Number(limit));
-
-    res.status(200).json({
-      success: true,
-      message: "Courses retrieved successfully",
-      data: courses,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
 // Delete Course by Id
 export const courseDeleteById = async (req, res) => {
   const { id } = req.params;
